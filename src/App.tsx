@@ -9,7 +9,7 @@ import { requestMultiple, PERMISSIONS } from 'react-native-permissions';
 import Config from "react-native-config";
 
 //create .env file in root of example and store Room ID and API Key
-let ROOM_ID = Config.ROOM_ID
+let ROOM_ID = Config.ROOM_ID 
 let API_KEY = Config.API_KEY
 export default function App() {
   const [localStream, setStream] = useState<string>('');
@@ -19,8 +19,8 @@ export default function App() {
     setParticipantStreamMaps(new Map(participantStreamMaps.set(k, v)));
   }
   const deleteFromStreamMap = (v: string) => {
-    participantStreamMaps.delete(v)
-    let map = new Map(participantStreamMaps)
+    participantStreamMaps.delete(v) 
+    let map = new Map(participantStreamMaps) 
     map.delete(v)
     setParticipantStreamMaps(new Map(map));
   }
@@ -28,7 +28,7 @@ export default function App() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (API_KEY == undefined || ROOM_ID == undefined) {
+    if (API_KEY == "" || ROOM_ID == "") {
       throw Error('Please create a .env file and add your ROOM_ID and API_KEY');
     }
     verifyPermissions();
@@ -198,11 +198,11 @@ export default function App() {
     }
   };
 
-  const onPressPublish = async () => {
+  const onPressPublish = async () => { 
     try {
       let callerStream = await mediaDevices.getUserMedia({
         audio: true,
-        video: true,
+        video:true, 
       });
       console.log('got local stream using getUserMedia...');
 
